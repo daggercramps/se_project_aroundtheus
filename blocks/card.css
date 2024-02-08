@@ -18,7 +18,7 @@
     font-weight: 900;
     line-height: 29px;
     margin: 0;
-    max-width: 300px;
+    max-width: 220px;
 }
 
 .card__description {
@@ -40,4 +40,5 @@
 
 .card__like-button:hover {
     cursor: pointer;
+    opacity: 90%;
 }
