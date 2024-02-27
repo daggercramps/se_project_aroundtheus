@@ -23,7 +23,7 @@
 
 .profile__edit-button:hover {
     cursor: pointer;
-    opacity: 65%;
+    opacity: 60%;
 }
 
 .profile__add-button {
@@ -38,7 +38,7 @@
 
 .profile__add-button:hover {
     cursor: pointer;
-    opacity: 65%;
+    opacity: 60%;
 }
 
 .profile__title {
