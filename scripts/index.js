@@ -49,8 +49,6 @@ function closePopup(popup) {
     popup.classList.remove("modal_opened");
 }
 
-closePopup(profileEditModal);
-
 function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardImageEl = cardElement.querySelector(".card__image");
@@ -65,7 +63,7 @@ function handleProfileEditSubmit(e) {
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;
     profileDescription.textContent = profileDescriptionInput.value;
-    closePopup();
+    closePopup(profileEditModal);
 }
 
 profileEditBtn.addEventListener("click", () => {
@@ -80,9 +78,11 @@ profileAddBtn.addEventListener("click", () => {
     profileAddModal.classList.add("modal_opened");
 });
 
-profileEditModalCloseBtn.addEventListener("click", closePopup);
+profileEditModalCloseBtn.addEventListener
+("click", () => closePopup(profileEditModal));
 
-profileAddModalCloseBtn.addEventListener("click", closePopup);
+profileAddModalCloseBtn.addEventListener
+("click", () => closePopup(profileAddModal));
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
