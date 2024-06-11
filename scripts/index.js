@@ -43,7 +43,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate = document.querySelector("#card-template").content;
-const cardsList = document.querySelector(".cardsy__list");
+const cardsList = document.querySelector(".cards__list");
 
 function closePopup() {
     profileEditModal.classList.remove("modal_opened");
