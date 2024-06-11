@@ -45,13 +45,11 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
-function closePopup() {
-    profileEditModal.classList.remove("modal_opened");
+function closePopup(popup) {
+    popup.classList.remove("modal_opened");
 }
 
-function closePopup() {
-    profileAddModal.classList.remove("modal_opened");
-}
+closePopup(profileEditModal);
 
 function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
