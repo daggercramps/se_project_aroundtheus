@@ -13,7 +13,7 @@
     visibility: hidden;
 }
 
-.modal__opened {
+.modal_opened {
     visibility: visible;
 }
 
@@ -43,7 +43,11 @@
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.modal__close:hover {
     cursor: pointer;
+    opacity: 60%;
 }
 
 .modal__heading {
@@ -59,20 +63,8 @@
 
 }
 
-.modal__title {
+.modal__input {
     margin-bottom: 30px;
-    height: 27px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    font-family: Inter;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: left;
-}
-
-.modal__description {
-    margin-bottom: 48px;
     height: 27px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -95,6 +87,12 @@
     line-height: 22px;
     letter-spacing: 0em;
     text-align: center;
+    margin-top: 18px;
+}
+
+.modal__button:hover {
+    cursor: pointer;
+    opacity: 60%;
 }
 
 @media screen and (max-width: 600px) {
