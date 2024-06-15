@@ -108,9 +108,10 @@ profileEditModalCloseBtn.addEventListener
 profileAddModalCloseBtn.addEventListener
 ("click", () => closePopup(profileAddModal));
 
-function onClick() {
-    document.getElementById("card-like-button").style.backgroundColor = "#000000";
-  }
+function toggleImage() {
+    let img = document.getElementById("card-like-button-active");
+    img.src = "cardheartactive.svg";
+}
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
