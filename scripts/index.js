@@ -65,11 +65,11 @@ const initialCards = [
         cardTitle.textContent = cardData.name;
     
         return cardElement;
-    }
 
-    cardLikeBtn.addEventListener("click", () => {
-        cardLikeBtn.classList.toggle("card__like-button_active");
-      });
+        cardLikeBtn.addEventListener("click", () => {
+            cardLikeBtn.classList.toggle("card__like-button_active");
+          });
+    }
     
     function renderCard(cardData, wrapper) {
         const cardElement = getCardElement(cardData);
