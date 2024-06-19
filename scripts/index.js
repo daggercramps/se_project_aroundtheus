@@ -63,12 +63,12 @@ const initialCards = [
         cardImage.src = cardData.link;
         cardImage.alt = cardData.name;  
         cardTitle.textContent = cardData.name;
-    
-        return cardElement;
 
         cardLikeBtn.addEventListener("click", () => {
             cardLikeBtn.classList.toggle("card__like-button_active");
           });
+    
+        return cardElement;
     }
     
     function renderCard(cardData, wrapper) {
