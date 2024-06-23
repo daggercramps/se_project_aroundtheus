@@ -45,7 +45,7 @@ const initialCards = [
     const profileUrlInput = document.querySelector("#profile-url-input");
     const profileEditForm = profileEditModal.querySelector(".modal__form");
     const addCardFormElement = profileAddModal.querySelector(".modal__form");
-    const cardTemplate = document.querySelector("#card-template").content;
+    const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
     const cardsList = document.querySelector(".cards__list");
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
@@ -69,9 +69,8 @@ const initialCards = [
             cardLikeBtn.classList.toggle("card__like-button_active");
         });
 
-        cardDeleteBtn.addEventListener("click", () => {
-            cardDeleteBtn.classList.remove("card-template");
-        });
+        cardDeleteBtn.addEventListener("click", () => 
+            cardElement.remove());
     
         return cardElement;
     }
