@@ -75,12 +75,12 @@ const initialCards = [
             cardElement.remove());
 
         cardImage.addEventListener("click", () => {
-            const cardImage = cardElement.querySelector("#card-image");
-            const cardTitle = cardElement.querySelector("modal__card-image-title");
+            const cardImage = cardImageModal.querySelector(".card__image");
+            const cardTitle = cardImageModal.querySelector(".modal__card-image-title");
             cardImage.src = cardData.link;
             cardImage.alt = cardData.name;
             cardTitle.textContent = cardData.name;
-            openModal(cardImage);
+            closePopup(cardImage);
         });
 
         return cardElement;
