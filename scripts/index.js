@@ -50,7 +50,7 @@ const initialCards = [
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
     const cardImageModal = document.querySelector("#card-image-modal");
-    const cardImageCloseButton = document.querySelector("#card-image-close-button");
+    const cardImageCloseBtn = document.querySelector("#card-image-close-button");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
@@ -75,8 +75,8 @@ const initialCards = [
             cardElement.remove());
 
         cardImage.addEventListener("click", () => {
-            const cardImage = cardImageModal.querySelector(".card__image");
-            const cardTitle = cardImageModal.querySelector(".modal__card-image-title");
+            const cardImage = document.querySelector(".card__image");
+            const cardTitle = document.querySelector(".modal__card-image-title");
             cardImage.src = cardData.link;
             cardImage.alt = cardData.name;
             cardTitle.textContent = cardData.name;
