@@ -49,9 +49,15 @@ const initialCards = [
     const cardsList = document.querySelector(".cards__list");
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
+    const cardImageModal = document.querySelector("#card-image-modal");
+    const cardImageCloseButton = document.querySelector("#card-image-close-button");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
+    }
+
+    function showCardImage({ name, link }) {
+        
     }
     
     function getCardElement(cardData) {
@@ -71,7 +77,17 @@ const initialCards = [
 
         cardDeleteBtn.addEventListener("click", () => 
             cardElement.remove());
-    
+
+        cardImage.addEventListener("click", () => {
+            const cardImage = cardImageModal.querySelector("#card-image");
+            const cardTitle = cardImageModal.querySelector
+            ("#modal-card-image-title");
+            modalImage.src = cardData.link;
+            modalImage.alt = cardData.name;
+            modalTitle.textContent = cardData.name;
+            openModal(previewImageModal);
+        });
+
         return cardElement;
     }
     
