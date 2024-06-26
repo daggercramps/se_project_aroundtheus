@@ -104,8 +104,39 @@
     height: 540px;
 }
 
+.modal__image-wrapper {
+    font-size: 10px;
+}
+
+.modal__card-image-title {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+
+}
+
 .modal__close-image{
     background-image: url(../images/Close\ Icon.svg);
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+    height: 40px;
+    width: 40px;
+  }
+
+  .modal__close-image:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+  .image__close-button {
+    background-image: url(../images/modalclosebutton.svg);
     background-color: transparent;
     background-size: contain;
     border: none;

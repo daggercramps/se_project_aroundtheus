@@ -49,7 +49,7 @@ const initialCards = [
     const cardsList = document.querySelector(".cards__list");
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
-    const imageModal = document.querySelector(".card__image");
+    const imageModal = document.querySelector(".modal__image-wrapper");
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
     
     function closePopup(popup) {
