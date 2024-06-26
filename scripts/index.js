@@ -49,8 +49,8 @@ const initialCards = [
     const cardsList = document.querySelector(".cards__list");
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
-    const cardImageModal = document.querySelector("#card-image-modal");
-    const cardImageCloseBtn = document.querySelector("#card-image-close-button");
+    const imageModal = document.querySelector("#preview-image-modal");
+    const imageCloseBtn = document.querySelector("#preview-image-close-button");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
@@ -80,7 +80,7 @@ const initialCards = [
             cardImage.src = cardData.link;
             cardImage.alt = cardData.name;
             cardTitle.textContent = cardData.name;
-            closePopup(cardImage);
+            imageModal.classList.add("modal_opened");
         });
 
         return cardElement;
