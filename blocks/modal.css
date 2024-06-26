@@ -95,6 +95,28 @@
     opacity: 60%;
 }
 
+.modal__container_preview-image {
+    position: relative;
+}
+
+.modal__image {
+    width: 433px;
+    height: 540px;
+}
+
+.modal__close-image{
+    background-image: url(../images/Close\ Icon.svg);
+    background-color: transparent;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+    height: 40px;
+    width: 40px;
+  }
+
 @media screen and (max-width: 600px) {
     .modal__container {
         position: absolute;
