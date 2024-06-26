@@ -60,7 +60,7 @@ const initialCards = [
     function handleImageClick() {
         imageModal.classList.add("modal_opened");
     }
-    
+
     function getCardElement(cardData) {
         const cardElement = cardTemplate.cloneNode(true);
         const cardImage = cardElement.querySelector(".card__image");
@@ -84,10 +84,10 @@ const initialCards = [
         cardImage.src = cardData.link;
         cardImage.alt = cardData.name;
         cardTitle.textContent = cardData.name;
-        
+
         return cardElement;
     }
-    
+
     function renderCard(cardData, wrapper) {
         const cardElement = getCardElement(cardData);
         wrapper.prepend(cardElement);
