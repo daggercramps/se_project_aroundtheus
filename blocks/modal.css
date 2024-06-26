@@ -13,10 +13,6 @@
     visibility: hidden;
 }
 
-.imageModal {
-    
-}
-
 .modal_opened {
     visibility: visible;
 }
