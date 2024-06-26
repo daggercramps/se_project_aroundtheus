@@ -49,11 +49,16 @@ const initialCards = [
     const cardsList = document.querySelector(".cards__list");
     const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
     const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
-    const imageModal = document.querySelector(".modal__image-wrapper");
+    const imageModal = document.querySelector("#preview-image-modal");
+    const modalImageTitle = document.querySelector(".modal__card-image-title");
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
+    }
+
+    function handleImageClick() {
+        imageModal.classList.add("modal_opened");
     }
     
     function getCardElement(cardData) {
@@ -62,10 +67,6 @@ const initialCards = [
         const cardTitle = cardElement.querySelector(".card__title");
         const cardLikeBtn = cardElement.querySelector(".card__like-button");
         const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-    
-        cardImage.src = cardData.link;
-        cardImage.alt = cardData.name;
-        cardTitle.textContent = cardData.name;
 
         cardLikeBtn.addEventListener("click", () => {
             cardLikeBtn.classList.toggle("card__like-button_active");
@@ -75,14 +76,15 @@ const initialCards = [
             cardElement.remove());
 
         cardImage.addEventListener("click", () => {
-            const cardImage = document.querySelector(".card__image");
-            const cardTitle = document.querySelector(".modal__card-image-title");
-            cardImage.src = cardData.link;
-            cardImage.alt = cardData.name;
-            cardTitle.textContent = cardData.name;
-            imageModal.classList.add("modal_opened");
+            imageModal.src = cardData.link;
+            modalImageTitle.textContent = cardData.name;
+            handleImageClick();
         });
 
+        cardImage.src = cardData.link;
+        cardImage.alt = cardData.name;
+        cardTitle.textContent = cardData.name;
+        
         return cardElement;
     }
     
