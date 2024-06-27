@@ -62,6 +62,7 @@ const initialCards = [
         const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
         const previewImageModal = document.querySelector("#preview-image-modal");
         const previewImage = document.querySelector(".preview__image");
+        const previewTitle = document.querySelector(".modal__card-image-title");
         const imageCloseBtn = document.querySelector("#preview-image-close-button");
 
         cardLikeBtn.addEventListener("click", () => {
@@ -74,6 +75,7 @@ const initialCards = [
         cardImage.addEventListener("click", () => {
             previewImage.src = cardData.link;
             previewImage.alt = cardData.name;
+            previewTitle.textContent = cardData.name;
             previewImageModal.classList.add("modal_opened");
         });
 
