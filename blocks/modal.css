@@ -104,10 +104,6 @@
     height: 540px;
 }
 
-.modal__image-wrapper {
-    font-size: 10px;
-}
-
 .modal__card-image-title {
     font-family: Inter;
     font-size: 12px;
