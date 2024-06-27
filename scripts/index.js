@@ -77,6 +77,10 @@ const initialCards = [
             previewImageModal.classList.add("modal_opened");
         });
 
+        imageCloseBtn.addEventListener("click", () => {
+            closeModal(previewImageModal);
+        })
+
         cardImage.src = cardData.link;
         cardImage.alt = cardData.name;
         cardTitle.textContent = cardData.name;

@@ -104,6 +104,11 @@
     height: 540px;
 }
 
+.preview__image {
+    max-width: 75vw;
+    height: 75vh;
+}
+
 .modal__card-image-title {
     font-family: Inter;
     font-size: 12px;
