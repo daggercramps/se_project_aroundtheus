@@ -78,7 +78,7 @@ const initialCards = [
         });
 
         imageCloseBtn.addEventListener("click", () => {
-            closeModal(previewImageModal);
+            closePopup(previewImageModal);
         })
 
         cardImage.src = cardData.link;

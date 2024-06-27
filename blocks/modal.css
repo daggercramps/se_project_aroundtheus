@@ -97,6 +97,8 @@
 
 .modal__container_preview-image {
     position: relative;
+    background-color: transparent;
+    padding: 0;
 }
 
 .modal__image {
