@@ -82,7 +82,8 @@ const initialCards = [
             previewTitle.textContent = cardData.name;
             previewImageModal.classList.add("modal_opened");
         });
-
+        /*I didn't understand the comment about 
+        how the close icons should be handled once*/
         imageCloseBtn.addEventListener("click", () => {
             closePopup(previewImageModal);
         })
@@ -112,6 +113,7 @@ const initialCards = [
         const link = profileUrlInput.value;
         renderCard({ name, link }, cardsList);
         closePopup(profileAddModal);
+        e.target.reset();
     }
     
     profileEditForm.addEventListener("submit", handleProfileEditSubmit);
@@ -124,18 +126,14 @@ const initialCards = [
     });
     
     profileAddBtn.addEventListener("click", () => {
-        profileTitleInput.value = profileTitle.textContent;
-        profileDescriptionInput.value = profileDescription.textContent;
         profileAddModal.classList.add("modal_opened");
     });
     
-    profileEditModalCloseBtn.addEventListener
-    ("click", () => closePopup(profileEditModal));
+    profileEditModalCloseBtn.addEventListener("click", () => 
+        closePopup(profileEditModal));
     
-    profileAddModalCloseBtn.addEventListener
-    ("click", () => closePopup(profileAddModal));
-    
-    profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+    profileAddModalCloseBtn.addEventListener("click", () => 
+        closePopup(profileAddModal));
     
     initialCards.forEach((cardData) => {
         const cardElement = getCardElement(cardData);
