@@ -82,6 +82,7 @@ const initialCards = [
             previewTitle.textContent = cardData.name;
             previewImageModal.classList.add("modal_opened");
         });
+        
         /*I didn't understand the comment about 
         how the close icons should be handled once*/
         imageCloseBtn.addEventListener("click", () => {
