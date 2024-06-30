@@ -32,23 +32,23 @@ const initialCards = [
     ];
     
     const profileEditBtn = document.querySelector("#profile-edit-button");
-    const profileAddBtn = document.querySelector("#add-button");
+    const AddBtn = document.querySelector("#add-button");
     const profileEditModal = document.querySelector("#profile-edit-modal");
-    const profileAddModal = document.querySelector("#add-modal");
+    const AddModal = document.querySelector("#add-modal");
     const profileEditModalCloseBtn = document.querySelector("#profile-edit-modal-close-button");
-    const profileAddModalCloseBtn = document.querySelector("#add-modal-close-button");
+    const AddModalCloseBtn = document.querySelector("#add-modal-close-button");
     const profileTitle = document.querySelector(".profile__title");
     const profileDescription = document.querySelector(".profile__description");
     const profileTitleInput = document.querySelector("#profile-title-input");
     const profileDescriptionInput = document.querySelector("#profile-description-input");
-    const profileNameInput = document.querySelector("#profile-name-input");
-    const profileUrlInput = document.querySelector("#profile-url-input");
+    const NameInput = document.querySelector("#name-input");
+    const UrlInput = document.querySelector("#url-input");
     const profileEditForm = document.forms["profile-form"];
     const addCardFormElement = document.forms["card-form"];
     const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
     const cardsList = document.querySelector(".cards__list");
-    const cardTitleInput = addCardFormElement.querySelector("#profile-name-input");
-    const cardUrlInput = addCardFormElement.querySelector("#profile-url-input");
+    const cardTitleInput = addCardFormElement.querySelector("#name-input");
+    const cardUrlInput = addCardFormElement.querySelector("#url-input");
     const previewImageModal = document.querySelector("#preview-image-modal");
     const previewImage = document.querySelector(".preview__image");
     const previewTitle = document.querySelector(".modal__card-image-title");
@@ -80,14 +80,12 @@ const initialCards = [
             previewImage.src = cardData.link;
             previewImage.alt = cardData.name;
             previewTitle.textContent = cardData.name;
-            previewImageModal.classList.add("modal_opened");
+            previewImageModal.classList.openPopup(popup);
         });
         
-        /*I didn't understand the comment about 
-        how the close icons should be handled once*/
         imageCloseBtn.addEventListener("click", () => {
             closePopup(previewImageModal);
-        })
+        });
 
         cardImage.src = cardData.link;
         cardImage.alt = cardData.name;
@@ -110,10 +108,10 @@ const initialCards = [
     
     function handleAddCardFormElement(e) {
         e.preventDefault();
-        const name = profileNameInput.value;
-        const link = profileUrlInput.value;
+        const name = NameInput.value;
+        const link = UrlInput.value;
         renderCard({ name, link }, cardsList);
-        closePopup(profileAddModal);
+        closePopup(AddModal);
         e.target.reset();
     }
     
@@ -126,15 +124,15 @@ const initialCards = [
         profileEditModal.classList.add("modal_opened");
     });
     
-    profileAddBtn.addEventListener("click", () => {
-        profileAddModal.classList.add("modal_opened");
+    AddBtn.addEventListener("click", () => {
+        AddModal.classList.add("modal_opened");
     });
     
     profileEditModalCloseBtn.addEventListener("click", () => 
         closePopup(profileEditModal));
     
-    profileAddModalCloseBtn.addEventListener("click", () => 
-        closePopup(profileAddModal));
+    AddModalCloseBtn.addEventListener("click", () => 
+        closePopup(AddModal));
     
     initialCards.forEach((cardData) => {
         const cardElement = getCardElement(cardData);
