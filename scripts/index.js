@@ -53,6 +53,7 @@ const initialCards = [
     const previewImage = document.querySelector(".preview__image");
     const previewTitle = document.querySelector(".modal__card-image-title");
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
+    const popup = document.querySelector(".modal");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
@@ -81,10 +82,6 @@ const initialCards = [
             previewImage.alt = cardData.name;
             previewTitle.textContent = cardData.name;
             previewImageModal.classList.openPopup(popup);
-        });
-        
-        imageCloseBtn.addEventListener("click", () => {
-            closePopup(previewImageModal);
         });
 
         cardImage.src = cardData.link;
@@ -133,6 +130,10 @@ const initialCards = [
     
     AddModalCloseBtn.addEventListener("click", () => 
         closePopup(AddModal));
+
+    imageCloseBtn.addEventListener("click", () => {
+        closePopup(previewImageModal);
+    });
     
     initialCards.forEach((cardData) => {
         const cardElement = getCardElement(cardData);
