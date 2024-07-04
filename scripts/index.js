@@ -32,11 +32,11 @@ const initialCards = [
     ];
     
     const profileEditBtn = document.querySelector("#profile-edit-button");
-    const AddBtn = document.querySelector("#add-button");
+    const addBtn = document.querySelector("#add-button");
     const profileEditModal = document.querySelector("#profile-edit-modal");
-    const AddModal = document.querySelector("#add-modal");
+    const addModal = document.querySelector("#add-modal");
     const profileEditModalCloseBtn = document.querySelector("#profile-edit-modal-close-button");
-    const AddModalCloseBtn = document.querySelector("#add-modal-close-button");
+    const addModalCloseBtn = document.querySelector("#add-modal-close-button");
     const profileTitle = document.querySelector(".profile__title");
     const profileDescription = document.querySelector(".profile__description");
     const profileTitleInput = document.querySelector("#profile-title-input");
@@ -53,7 +53,7 @@ const initialCards = [
     const previewImage = document.querySelector(".preview__image");
     const previewTitle = document.querySelector(".modal__card-image-title");
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
-    const popup = document.querySelector(".modal");
+    const closeButtons = document.querySelectorAll(".modal__close");
     
     function closePopup(popup) {
         popup.classList.remove("modal_opened");
@@ -81,7 +81,7 @@ const initialCards = [
             previewImage.src = cardData.link;
             previewImage.alt = cardData.name;
             previewTitle.textContent = cardData.name;
-            previewImageModal.classList.openPopup(popup);
+            openPopup(previewImageModal);
         });
 
         cardImage.src = cardData.link;
@@ -108,7 +108,7 @@ const initialCards = [
         const name = NameInput.value;
         const link = UrlInput.value;
         renderCard({ name, link }, cardsList);
-        closePopup(AddModal);
+        closePopup(addModal);
         e.target.reset();
     }
     
@@ -118,22 +118,28 @@ const initialCards = [
     profileEditBtn.addEventListener("click", () => {
         profileTitleInput.value = profileTitle.textContent;
         profileDescriptionInput.value = profileDescription.textContent;
-        profileEditModal.classList.add("modal_opened");
+        openPopup(profileEditModal);
     });
     
-    AddBtn.addEventListener("click", () => {
-        AddModal.classList.add("modal_opened");
+    addBtn.addEventListener("click", () => {
+        openPopup(addModal);
     });
     
     profileEditModalCloseBtn.addEventListener("click", () => 
         closePopup(profileEditModal));
     
-    AddModalCloseBtn.addEventListener("click", () => 
-        closePopup(AddModal));
+    addModalCloseBtn.addEventListener("click", () => 
+        closePopup(addModal));
 
     imageCloseBtn.addEventListener("click", () => {
         closePopup(previewImageModal);
     });
+
+    closeButtons.forEach((button) => {
+        const popup = button.closest(".popup");
+        button.addEventListener("click", () => 
+            closePopup(popup));
+    })
     
     initialCards.forEach((cardData) => {
         const cardElement = getCardElement(cardData);
