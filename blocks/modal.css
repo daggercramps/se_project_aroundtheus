@@ -23,7 +23,7 @@
 .modal__container {
     position: relative;
     background-color: #fff;
-    padding: 36px;
+    padding: 22px;
     margin: auto;
     border-radius: 10px;
     display: flex;
@@ -146,6 +146,7 @@
         position: absolute;
         max-width: 282px;
         top: 123px;
+        margin: 0 22px;
     }
 
     .modal__close {

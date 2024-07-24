@@ -53,14 +53,14 @@ const initialCards = [
     const previewImage = document.querySelector(".preview__image");
     const previewTitle = document.querySelector(".modal__card-image-title");
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
-    const closeButtons = document.querySelectorAll(".modal__close");
-    
-    function closePopup(popup) {
-        popup.classList.remove("modal_opened");
-    }
+    const closeBtn = document.querySelectorAll(".modal__close");
 
     function openPopup(popup) {
         popup.classList.add("modal_opened");
+    }
+
+    function closePopup(popup) {
+        popup.classList.remove("modal_opened");
     }
 
     function getCardElement(cardData) {
@@ -134,14 +134,13 @@ const initialCards = [
     imageCloseBtn.addEventListener("click", () => {
         closePopup(previewImageModal);
     });
-
-    closeButtons.forEach((button) => {
-        const popup = button.closest(".popup");
-        button.addEventListener("click", () => 
-            closePopup(popup));
-    })
     
     initialCards.forEach((cardData) => {
         const cardElement = getCardElement(cardData);
         cardsList.prepend(cardElement);
+    });
+
+    closeBtn.forEach((button) => {
+        const popup = button.closest(".modal");
+        button.addEventListener('click', () => closePopup(popup));
     });
