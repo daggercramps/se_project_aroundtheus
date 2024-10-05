@@ -48,12 +48,16 @@
                         class="modal__input" type="text" 
                         name="title"
                         id="profile-title-input" 
-                        placeholder="Name">
+                        placeholder="Name"
+                        required
+                        minlength="2" maxlength="40">
                     <input 
                         class="modal__input" 
                         type="text" name="description" 
                         id="profile-description-input" 
-                        placeholder="Description">
+                        placeholder="Description"
+                        required
+                        minlength="2" maxlength="200">
                     <button class="modal__button">Save</button>
                 </form>
             </div>
@@ -68,13 +72,16 @@
                         class="modal__input" 
                         type="text" name="title" 
                         id="name-input" 
-                        placeholder="Title">
+                        placeholder="Title"
+                        required
+                        minlength="1" maxlength="30">
                     <input 
                         class="modal__input" 
-                        type="text" 
+                        type="url" 
                         name="description" 
                         id="url-input" 
-                        placeholder="Image URL">
+                        placeholder="Image URL"
+                        required>
                     <button class="modal__button">Create</button>
                 </form>
             </div>
