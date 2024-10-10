@@ -147,6 +147,50 @@ const initialCards = [
         button.addEventListener('click', () => closePopup(popup));
     });
 
+    const hasInvalidInput = (inputList) => {
+        return inputList.some((inputElement) => {
+          return !inputElement.validity.valid;
+        });
+      };
+
+      const toggleButtonState = (inputList, buttonElement) => {
+        if (hasInvalidInput(inputList)) {
+          buttonElement.classList.add("button_inactive");
+        } else {
+          buttonElement.classList.remove("button_inactive");
+        }
+      };
+
+      const setEventListeners = (formElement) => {
+        const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+
+        toggleButtonState(inputList, buttonElement);
+        
+        inputList.forEach((inputElement) => {
+          inputElement.addEventListener("input", function () {
+            checkInputValidity(formElement, inputElement);
+            toggleButtonState(inputList, buttonElement);
+          });
+        });
+      };
+
+      const enableValidation = () => {
+        const formList = Array.from(document.querySelectorAll(".form"));
+        formList.forEach((formElement) => {
+          formElement.addEventListener("submit", function (evt) {
+            evt.preventDefault();
+          });
+      
+          const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+      
+          fieldsetList.forEach((fieldset) => {
+            setEventListeners(fieldset);
+          });
+        });
+      };
+  
+      enableValidation();
+
     formElement.addEventListener("submit", function (evt) {
         evt.preventDefault();
     });
