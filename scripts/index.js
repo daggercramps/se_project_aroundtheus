@@ -148,9 +148,7 @@ const initialCards = [
     });
 
       function toggleButtonState() {
-        if (profileTitleInput.value.trim() === "" 
-        ||
-        profileDescriptionInput.value.trim() === "") {
+        if (profileTitleInput.value.trim() === "" || profileDescriptionInput.value.trim() === "") {
             buttonElement.disabled = true;
         } else {
             buttonElement.disabled = false;
@@ -161,7 +159,7 @@ const initialCards = [
     profileDescriptionInput.addEventListener("input", toggleButtonState);
 
     function toggleButtonState() {
-        if (nameInput.value.trim() === "" || urlInput.value.trim() === "") {
+        if (nameInput.value.trim() === "" || !urlInput.validity.valid) {
             buttonElement.disabled = true;
         } else {
             buttonElement.disabled = false;
@@ -170,5 +168,3 @@ const initialCards = [
 
     nameInput.addEventListener("input", toggleButtonState);
     urlInput.addEventListener("input", toggleButtonState);
-
-    toggleButtonState();
