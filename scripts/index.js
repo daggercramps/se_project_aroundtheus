@@ -148,53 +148,28 @@ const initialCards = [
     });
 
     const hasInvalidInput = (inputList) => {
-        return inputList.some((inputElement) => {
-          return !inputElement.validity.valid;
-        });
+        return inputList.some((inputElement) => !inputElement.validity.valid);
       };
-
+      
       const toggleButtonState = (inputList, buttonElement) => {
         if (hasInvalidInput(inputList)) {
-          buttonElement.classList.add("button_inactive");
+          buttonElement.classList.add('.button__inactive');
+          buttonElement.disabled = true;
         } else {
-          buttonElement.classList.remove("button_inactive");
+          buttonElement.classList.remove('.button__inactive');
+          buttonElement.disabled = false;
         }
       };
-
+    
       const setEventListeners = (formElement) => {
-        const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-
+        const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+        const buttonElement = formElement.querySelector('.form__submit');
+  
         toggleButtonState(inputList, buttonElement);
-        
+  
         inputList.forEach((inputElement) => {
-          inputElement.addEventListener("input", function () {
-            checkInputValidity(formElement, inputElement);
+          inputElement.addEventListener('input', () => {
             toggleButtonState(inputList, buttonElement);
           });
         });
       };
-
-      const enableValidation = () => {
-        const formList = Array.from(document.querySelectorAll(".form"));
-        formList.forEach((formElement) => {
-          formElement.addEventListener("submit", function (evt) {
-            evt.preventDefault();
-          });
-      
-          const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
-      
-          fieldsetList.forEach((fieldset) => {
-            setEventListeners(fieldset);
-          });
-        });
-      };
-  
-      enableValidation();
-
-    formElement.addEventListener("submit", function (evt) {
-        evt.preventDefault();
-    });
-
-    formInput.addEventListener("input", function (evt) {
-        console.log(evt.target.validity);
-    });
