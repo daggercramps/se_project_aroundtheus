@@ -55,7 +55,7 @@ const initialCards = [
     const imageCloseBtn = document.querySelector("#preview-image-close-button");
     const closeBtn = document.querySelectorAll(".modal__close");
     const formElement = document.querySelector(".modal__form");
-    const formInput = formElement.querySelector(".modal__input");
+    const buttonElement = document.querySelector(".modal__button");
 
     function openPopup(popup) {
         popup.classList.add("modal_opened");
@@ -147,29 +147,28 @@ const initialCards = [
         button.addEventListener('click', () => closePopup(popup));
     });
 
-    const hasInvalidInput = (inputList) => {
-        return inputList.some((inputElement) => !inputElement.validity.valid);
-      };
-      
-      const toggleButtonState = (inputList, buttonElement) => {
-        if (hasInvalidInput(inputList)) {
-          buttonElement.classList.add('.button__inactive');
-          buttonElement.disabled = true;
+      function toggleButtonState() {
+        if (profileTitleInput.value.trim() === "" 
+        ||
+        profileDescriptionInput.value.trim() === "") {
+            buttonElement.disabled = true;
         } else {
-          buttonElement.classList.remove('.button__inactive');
-          buttonElement.disabled = false;
+            buttonElement.disabled = false;
         }
-      };
-    
-      const setEventListeners = (formElement) => {
-        const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-        const buttonElement = formElement.querySelector('.form__submit');
-  
-        toggleButtonState(inputList, buttonElement);
-  
-        inputList.forEach((inputElement) => {
-          inputElement.addEventListener('input', () => {
-            toggleButtonState(inputList, buttonElement);
-          });
-        });
-      };
+    }
+
+    profileTitleInput.addEventListener("input", toggleButtonState);
+    profileDescriptionInput.addEventListener("input", toggleButtonState);
+
+    function toggleButtonState() {
+        if (nameInput.value.trim() === "" || urlInput.value.trim() === "") {
+            buttonElement.disabled = true;
+        } else {
+            buttonElement.disabled = false;
+        }
+    }
+
+    nameInput.addEventListener("input", toggleButtonState);
+    urlInput.addEventListener("input", toggleButtonState);
+
+    toggleButtonState();
