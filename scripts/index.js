@@ -62,24 +62,24 @@
     const closeBtn = document.querySelectorAll(".modal__close");
     const formElement = document.querySelector(".modal__form");
     const buttonElement = document.querySelector(".modal__button");
+    const cardLikeBtn = document.querySelector(".card__like-button");
+    const cardDeleteBtn = document.querySelector(".card__delete-button");
 
 //GET CARD ELEMENTS//
 
     function getCardElement(cardData) {
         const cardElement = cardTemplate.cloneNode(true);
-        const cardImage = cardElement.querySelector(".card__image");
         const cardTitle = cardElement.querySelector(".card__title");
-        const cardLikeBtn = cardElement.querySelector(".card__like-button");
-        const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+        const cardImage = cardElement.querySelector(".card__image");
 
+        cardTitle.textContent = cardData.name;
         cardImage.src = cardData.link;
         cardImage.alt = cardData.name;
-        cardTitle.textContent = cardData.name;
 
         return cardElement;
     }
 
-//TOGGLE BUTTON STATE//
+//TOGGLE SUBMIT BUTTON STATE//
 
     function toggleButtonState() {
         if (profileTitleInput.value.trim() === "" 
